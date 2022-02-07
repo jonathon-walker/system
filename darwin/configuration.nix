@@ -30,7 +30,6 @@
 
   # https://github.com/nix-community/home-manager/issues/423
   programs.nix-index.enable = true;
-  programs.command-not-found.enable = false;
 
   # Fonts
 
