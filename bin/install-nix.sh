@@ -1,18 +1,26 @@
 #! /usr/bin/env bash
 
-NIX_VERSION=2.6.0
-NIX_CONF_PATH=$HOME/.config/nix
+RELEASE="nix-2.7.0pre20220203_bd383d1"
+URL="https://github.com/numtide/nix-unstable-installer/releases/download/$RELEASE/install"
+
+# install using workaround for darwin systems
+if [[ $(uname -s) = "Darwin" ]]; then
+    FLAG="--darwin-use-unencrypted-nix-store-volume"
+fi
+
+[[ ! -z "$1" ]] && URL="$1"
 
 if command -v nix > /dev/null; then
     echo "nix is already installed on this system."
 else
-    sh <(curl -L https://releases.nixos.org/nix/nix-$NIX_VERSION/install)
+    bash <(curl -L $URL) --daemon $FLAG
 fi
 
+NIX_CONF_PATH=$HOME/.config/nix
 if [[ ! -d $NIX_CONF_PATH ]]; then
-    mkdir -p "$NIX_CONF_PATH"
+    mkdir -p $NIX_CONF_PATH
 fi
 
-if [[ ! -f $NIX_CONF_PATH/nix.conf ]] || ! grep "experimental-features" < "$NIX_CONF_PATH"; then
-    echo "experimental-features = nix-command flakes" | tee -a "$NIX_CONF_PATH"/nix.conf
+if [[ ! -f $NIX_CONF_PATH/nix.conf ]] || ! grep "experimental-features" < $NIX_CONF_PATH; then
+    echo "experimental-features = nix-command flakes" | tee -a $NIX_CONF_PATH/nix.conf
 fi

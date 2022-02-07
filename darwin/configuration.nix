@@ -15,9 +15,10 @@
   # Create /etc/bashrc that loads the nix-darwin environment.
   programs.zsh = {
     enable = true;
-    interactiveShellInit = ''
-      source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
-    '';
+    promptInit =
+      "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+    interactiveShellInit =
+      "source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh";
   };
 
   # Auto upgrade nix package and the daemon service.
