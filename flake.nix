@@ -20,7 +20,7 @@
       inherit (inputs.nixpkgs.lib) attrValues singleton;
     in {
       darwinConfigurations = rec {
-        macbook-intel = darwinSystem {
+        Jonathons-MacBook-Pro = darwinSystem {
           system = "x86_64-darwin";
           modules = attrValues self.darwinModules ++ [
             ./darwin
