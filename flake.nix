@@ -17,8 +17,7 @@
   outputs = { self, darwin, nixpkgs, home-manager, ... }@inputs:
     let
       inherit (darwin.lib) darwinSystem;
-      inherit (inputs.nixpkgs.lib) attrValues;
-
+      inherit (inputs.nixpkgs.lib) attrValues singleton;
     in {
       darwinConfigurations = rec {
         macbook-intel = darwinSystem {
@@ -27,6 +26,7 @@
             ./darwin
             home-manager.darwinModules.home-manager
             {
+              nixpkgs.config.allowUnfree = true;
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.jonathon = import ./home.nix;
