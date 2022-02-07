@@ -39,5 +39,6 @@ in {
     "virtualbox"
     "visual-studio-code"
     "vlc"
+    "zoom"
   ];
 }
