@@ -16,6 +16,7 @@
     kubernetes-helm
     kubetail
     m-cli
+    mas
     mkcert
     moreutils
     ngrok

@@ -1,1 +1,3 @@
-{ pkgs, ... }: { imports = [ ./configuration.nix ./homebrew.nix ]; }
+{ pkgs, ... }: {
+  imports = [ ./configuration.nix ./homebrew.nix ./preferences.nix ];
+}

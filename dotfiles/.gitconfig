@@ -1,0 +1,15 @@
+[alias]
+	st = status -sb
+[user]
+	name = Jonathon Walker
+	email = jonathon@identitii.com
+[url "git@lab.identitii.com:"]
+	insteadOf = https://lab.identitii.com/
+[url "git@lab.identitii.com:identitii/oapi-codegen.git"]
+	insteadOf = https://lab.identitii.com/identitii/oapi-codegen.git
+[url "git@lab.identitii.com:identitii/kin-openapi.git"]
+	insteadOf = https://lab.identitii.com/identitii/kin-openapi.git
+[url "git@lab.identitii.com:identitii/dateparse.git"]
+	insteadOf = https://lab.identitii.com/identitii/dateparse.git
+[url "git@lab.identitii.com:identitii/proto-registry.git"]
+	insteadOf = https://lab.identitii.com/identitii/proto-registry.git
