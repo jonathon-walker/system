@@ -7,7 +7,10 @@
     bat
     comma
     curl
+    delta
     docker-compose
+    envsubst
+    go
     google-cloud-sdk
     grpcurl
     jq
@@ -47,15 +50,8 @@
       gvm_use() {
         GO_VERSION="$1"
 
-        [ -s "$GVM_DIR/scripts/gvm" ] && source "$GVM_DIR/scripts/gvm"
+        source $HOME/.gvm/scripts/gvm
         gvm use "$GO_VERSION"
-      }
-
-      jabba_use() {
-        JAVA_VERSION="$1"
-
-        [ -s "$JABBA_HOME/jabba.sh" ] && source "$JABBA_HOME/jabba.sh"
-        jabba use "$JAVA_VERSION"
       }
     '';
   };
@@ -75,8 +71,18 @@
     };
 
     initExtraFirst = ''
+      source $HOME/.gvm/scripts/gvm
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
       source $HOME/.p10k.zsh
+
+      export NVM_DIR="$HOME/.nvm"
+      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+    '';
+
+    initExtra = ''
+      export NVM_DIR="$HOME/.nvm"
+      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     '';
   };
 

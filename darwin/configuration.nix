@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, options, ... }: {
   # Nix configuration ------------------------------------------------------------------------------
 
   nix.binaryCaches = [ "https://cache.nixos.org/" ];
@@ -21,6 +21,8 @@
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
+
+  environment.variables = { EDITOR = "vim"; };
 
   # Apps
   # `home-manager` currently has issues adding them to `~/Applications`
