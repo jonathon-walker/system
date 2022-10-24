@@ -15,15 +15,18 @@ in {
   homebrew.global.noLock = true;
 
   homebrew.taps = [
-    "homebrew/cask"
+    "bufbuild/buf"
+    "elastic/tap"
+    "goreleaser/tap"
     "homebrew/cask-drivers"
     "homebrew/cask-fonts"
     "homebrew/cask-versions"
+    "homebrew/cask"
     "homebrew/core"
     "homebrew/services"
     "nrlquaker/createzap"
     "TomAnthony/brews"
-    "elastic/tap"
+    "warrensbox/tap"
   ];
 
   homebrew.masApps = {
@@ -49,10 +52,23 @@ in {
     "virtualbox"
     "visual-studio-code"
     "vlc"
+    "whatsapp"
     "zoom"
   ];
 
   ## Fallback to brews if NixOS doesn't provide a binary
-  homebrew.brews =
-    [ "gnu-sed" "itermocil" "libxml2" "pkg-config" "filebeat-full" "pnpm" ];
+  homebrew.brews = [
+    "buf"
+    "filebeat-full"
+    "gnu-sed"
+    "goreleaser"
+    "itermocil"
+    "libxml2"
+    "nvm"
+    "pkg-config"
+    "pnpm"
+    "pyenv"
+    "tfswitch"
+    "tgswitch"
+  ];
 }

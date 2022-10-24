@@ -4,12 +4,14 @@
   home.stateVersion = "22.05";
 
   home.packages = with pkgs; [
+    awscli
     bat
     comma
     curl
     delta
     docker-compose
     envsubst
+    gitlab-runner
     go
     google-cloud-sdk
     grpcurl
@@ -25,6 +27,7 @@
     ngrok
     nixfmt
     pstree
+    python27Full
     ripgrep
     tmux
     tree
@@ -43,7 +46,7 @@
       nvm_use() {
         NODE_VERSION="$1"
 
-        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+        [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
         nvm use "$NODE_VERSION"
       }
 
@@ -76,13 +79,13 @@
       source $HOME/.p10k.zsh
 
       export NVM_DIR="$HOME/.nvm"
-      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+      [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 
     '';
 
     initExtra = ''
       export NVM_DIR="$HOME/.nvm"
-      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+      [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
     '';
   };
 
